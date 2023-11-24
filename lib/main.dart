@@ -1,11 +1,9 @@
 import 'package:bookly_app/core/constants.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const BooklyApp());
@@ -19,7 +17,7 @@ class BooklyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
 
       theme: ThemeData(
@@ -39,7 +37,7 @@ class BooklyApp extends StatelessWidget {
 
       // home: const SplashView(),
 
-      home: SplashView(),
+     routerConfig: AppRouter.router,
     );
   }
 }

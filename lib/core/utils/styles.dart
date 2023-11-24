@@ -1,6 +1,4 @@
-import 'package:bookly_app/core/constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 abstract class Styles {
   static const textStyle18 = TextStyle(

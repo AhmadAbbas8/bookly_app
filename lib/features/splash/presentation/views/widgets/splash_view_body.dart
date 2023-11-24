@@ -1,8 +1,7 @@
 import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../../../core/constants.dart';
 import '../../../../../core/utils/assets.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -28,7 +27,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
 
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -47,17 +45,18 @@ class _SplashViewBodyState extends State<SplashViewBody>
           const SizedBox(height: 4),
           AnimatedBuilder(
             animation: slidingAnimation,
-            builder: (context, child) => SlideTransition(
-              position: slidingAnimation as Animation<Offset>,
-              child: const Text(
-                'Read Free Books',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  letterSpacing: 10,
-                  fontWeight: FontWeight.w400,
+            builder: (context, child) =>
+                SlideTransition(
+                  position: slidingAnimation as Animation<Offset>,
+                  child: const Text(
+                    'Read Free Books',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      letterSpacing: 10,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ),
-              ),
-            ),
           ),
         ],
       ),
@@ -78,12 +77,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(
-      const Duration(seconds: 2),
-          () => Get.to(
-        const HomeView(),
-        transition: Transition.fadeIn,
-        duration: kTranstionDuration,
-      ),
+        const Duration(seconds: 2),
+            () =>
+        //         Get.to(
+        //   const HomeView(),
+        //   transition: Transition.fadeIn,
+        //   duration: kTranstionDuration,
+        // ),
+        GoRouter.of(context).push(HomeView.kHomeView)
     );
   }
 
