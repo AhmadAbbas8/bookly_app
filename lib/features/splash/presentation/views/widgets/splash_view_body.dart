@@ -2,7 +2,7 @@ import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../constants.dart';
+import '../../../../../core/constants.dart';
 import '../../../../../core/utils/assets.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -85,4 +85,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
         duration: kTranstionDuration,
       ),
     );
-  }}
+  }
+
+}

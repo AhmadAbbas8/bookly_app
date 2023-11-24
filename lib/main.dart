@@ -1,4 +1,6 @@
-import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/constants.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,6 +11,9 @@ void main() {
   runApp(const BooklyApp());
 }
 
+
+
+
 class BooklyApp extends StatelessWidget {
   const BooklyApp({super.key});
 
@@ -16,18 +21,25 @@ class BooklyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: kPrimaryColor,
-        textTheme:  TextTheme(
-          bodyMedium: GoogleFonts.montserrat(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-          )
 
-        ),
+      theme: ThemeData(
+        useMaterial3: true,
       ),
-      home: const SplashView(),
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: kPrimaryColor,
+        textTheme: TextTheme(
+            bodyMedium: GoogleFonts.montserrat(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        )),
+      ),
+
+      // home: const SplashView(),
+
+      home: SplashView(),
     );
   }
 }
