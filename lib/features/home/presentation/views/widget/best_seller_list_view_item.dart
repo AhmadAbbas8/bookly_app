@@ -1,7 +1,5 @@
 import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
-import 'package:bookly_app/features/home/presentation/views/home_view.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
