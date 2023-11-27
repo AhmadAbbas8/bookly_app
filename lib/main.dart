@@ -1,16 +1,18 @@
 import 'package:bookly_app/core/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/adapters.dart';
 
+void main() async {
+  Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox(kFeaturedBox);
+  await Hive.initFlutter();
 
-void main() {
   runApp(const BooklyApp());
 }
-
-
-
 
 class BooklyApp extends StatelessWidget {
   const BooklyApp({super.key});
@@ -37,7 +39,7 @@ class BooklyApp extends StatelessWidget {
 
       // home: const SplashView(),
 
-     routerConfig: AppRouter.router,
+      routerConfig: AppRouter.router,
     );
   }
 }

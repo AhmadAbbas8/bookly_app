@@ -1,4 +1,6 @@
 import 'package:bookly_app/features/home/domain/repositories/home_repo.dart';
+import 'package:dartz/dartz.dart';
+import '../../../../core/errors/failure.dart';
 import '../entities/book_entity.dart';
 
 class FetchNewsBooksUseCase {
@@ -9,5 +11,5 @@ class FetchNewsBooksUseCase {
   });
 
   @override
-  Future<List<BookEntity>> call() async => await homeRepo.fetchNewsBooks();
+  Future<Either<Failure, List<BookEntity>>> call() async => await homeRepo.fetchNewsBooks();
 }
