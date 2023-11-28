@@ -43,6 +43,8 @@ dependencies:
   dio: ^5.3.4
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  get_it: ^7.6.4
+  cached_network_image: ^3.3.0
 
 
 

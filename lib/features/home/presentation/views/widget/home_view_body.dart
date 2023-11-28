@@ -1,6 +1,9 @@
+import 'package:bookly_app/features/home/presentation/view_model/featured_books_cubit/featured_books/featured_books_cubit.dart';
+import 'package:bookly_app/features/home/presentation/view_model/featured_books_cubit/featured_books/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widget/feature_list_view.dart';
 import 'package:bookly_app/features/home/presentation/views/widget/list_view_best_seller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'custom_app_bar.dart';
 
@@ -9,30 +12,40 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: CustomAppBar(),
               ),
-              FeaturedBooksListView(),
-              SizedBox(height: 50),
-              Padding(
+              BlocBuilder<FeaturedBooksCubit, FeaturedBooksState>(
+                builder: (context, state) {
+                  if (state is FeaturedBooksSuccess) {
+                    return  FeaturedBooksListView(books: state.books,);
+                  } else if (state is FeaturedBooksFailure||state is FeaturedBooksPaginationFailure) {
+                    return Text('Errror');
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
+                },
+              ),
+              const SizedBox(height: 50),
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text(
                   'Best Seller',
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // ListViewBestSeller(),
             ],
           ),
         ),
-        SliverFillRemaining(
+        const SliverFillRemaining(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: ListViewBestSeller(),
@@ -42,4 +55,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-

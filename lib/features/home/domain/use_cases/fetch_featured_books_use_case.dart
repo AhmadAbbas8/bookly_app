@@ -12,6 +12,6 @@ class FetchFeaturedBooksUseCase {
   });
 
   @override
-  Future<Either<Failure, List<BookEntity>>> call() async =>
+  Future<Either<Failure, List<BookEntity>>> call(int call) async =>
       await homeRepo.fetchFeatureBooks();
 }
